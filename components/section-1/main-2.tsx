@@ -76,6 +76,7 @@ export default function Main2() {
               transition: "1s",
             }}
             ml="37%"
+            key = {key}
           >
             <Box w="100%" h="5rem" display="flex" justifyContent={"flex-end"}>
               <Center w="5rem">
@@ -134,6 +135,7 @@ export default function Main2() {
               style={{
                 backgroundColor: key === active ? "red" : "white",
               }}
+              key = {key}
               onClick={() => changeSection(key)}
             ></Box>
           ))}

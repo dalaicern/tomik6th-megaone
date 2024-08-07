@@ -39,7 +39,7 @@ const Drawer = (props: any) => {
       >
         <Box>
           {menu.map((item, key) => (
-            <Center w="20rem">
+            <Center w="20rem" key = {key}>
               <Center
                 w="10rem"
                 h="3rem"

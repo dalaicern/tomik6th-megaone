@@ -91,6 +91,7 @@ export default function Main3() {
               opacity: key === active ? 1 : 0,
               transition: "1s",
             }}
+            key = {key}
           >
             <Center h="8rem" w="8rem">
               <Box
@@ -159,6 +160,7 @@ export default function Main3() {
                 opacity: key === active ? 1 : 0.7,
                 zIndex: key === active ? 1 : 0,
               }}
+              key = {key}
               onClick={() => changeSection(key)}
             ></Box>
           ))}

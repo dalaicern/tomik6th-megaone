@@ -44,7 +44,7 @@ export default function Home() {
     if (key < 5) {
       setActive(key + 1);
       let section: any = document.querySelectorAll(".sliderSections .section");
-      section[active - 1].style.transform = "translateY(-100vh)";
+      // section[active - 1].style.transform = "translateY(-100vh)";
     }
   };
   const scrollUp = (key: any) => {
@@ -87,55 +87,55 @@ export default function Home() {
   };
 
   return (
-    <>
       <body>
-        <Drawer openClose={() => openOrClose()} drawer={drawer}></Drawer>
-        <Box
+      <Drawer openClose={() => openOrClose()} drawer={drawer}></Drawer>
+      <Box
           pos={"fixed"}
           w="6rem"
           left="20px"
           h="100vh"
           top="40px"
           zIndex={100}
-        >
-          <Box
+      >
+        <Box
             w="100%"
             h="40%"
             bgImage="/images/logo-white.png"
             bgSize={"100%"}
             bgPos="cover"
             bgRepeat={"no-repeat"}
-          ></Box>
+        ></Box>
 
-          <Box w="4rem" h="40%" overflow={"visible"}>
-            {filledArray.map((item: any, key: any) => (
+        <Box w="4rem" h="40%" overflow={"visible"}>
+          {filledArray.map((item: any, key: any) => (
               <MouseParallaxContainer
-                globalFactorX={1}
-                globalFactorY={1}
-                resetOnLeave={true}
+                  globalFactorX={1}
+                  globalFactorY={1}
+                  resetOnLeave={true}
+                  key={key}
               >
                 <MouseParallaxChild factorX={-1} factorY={-1}>
                   <Box
-                    w="100%"
-                    h="2.5rem"
-                    bgImage={socialsvg[key].src}
-                    bgSize={"25%"}
-                    bgPos="center"
-                    bgRepeat={"no-repeat"}
+                      w="100%"
+                      h="2.5rem"
+                      bgImage={socialsvg[key].src}
+                      bgSize={"25%"}
+                      bgPos="center"
+                      bgRepeat={"no-repeat"}
                   ></Box>
                 </MouseParallaxChild>
               </MouseParallaxContainer>
-            ))}
-          </Box>
+          ))}
         </Box>
-        <Box pos={"fixed"} w="5rem" h="10vh" right="0px" top="0px" zIndex={100}>
-          <MouseParallaxContainer
+      </Box>
+      <Box pos={"fixed"} w="5rem" h="10vh" right="0px" top="0px" zIndex={100}>
+        <MouseParallaxContainer
             globalFactorX={1}
             globalFactorY={1}
             resetOnLeave={true}
-          >
-            <MouseParallaxChild factorX={-1} factorY={-1}>
-              <Box
+        >
+          <MouseParallaxChild factorX={-1} factorY={-1}>
+            <Box
                 w="100%"
                 h="10vh"
                 bgImage="/images/menu.svg"
@@ -143,12 +143,12 @@ export default function Home() {
                 bgPos="center"
                 bgRepeat={"no-repeat"}
                 onClick={() => openOrClose()}
-              ></Box>
-            </MouseParallaxChild>
-          </MouseParallaxContainer>
-        </Box>
+            ></Box>
+          </MouseParallaxChild>
+        </MouseParallaxContainer>
+      </Box>
 
-        <Box
+      <Box
           w="2rem"
           h="2rem"
           border="1px solid"
@@ -161,8 +161,8 @@ export default function Home() {
           transform="translate(-50%, -50%)"
           transition={"100ms"}
           pointerEvents="none"
-        ></Box>
-        <Box
+      ></Box>
+      <Box
           pos="fixed"
           w="2rem"
           h="11rem"
@@ -171,75 +171,77 @@ export default function Home() {
           top="40vh"
           rounded={"1rem"}
           zIndex="100"
-        >
-          {sectionStat.map((item: any, key: any) => (
+      >
+        {sectionStat.map((item: any, key: any) => (
             <Box
-              w="1rem "
-              h="1rem"
-              rounded="50%"
-              bgColor={"white"}
-              mt="10px"
-              ml="8px"
-              id="stat"
-              onClick={() => changeSection(key)}
-              style={{
-                scale: key === active ? 1.5 : 1,
-                backgroundColor: key === active ? "transparent" : "",
-                border: key === active ? "1px solid" : 0,
-              }}
-              _hover={{
-                bgColor: "cyan",
-              }}
-            ></Box>
-          ))}
-        </Box>
-        <Box>
-          {sectionStat.map((item: any, key: any) => (
-            <Box className="sliderSections">
-              <Box
-                className="section"
-                pos="absolute"
-                w="100%"
-                h="1000px"
+                w="1rem "
+                h="1rem"
+                rounded="50%"
+                bgColor={"white"}
+                mt="10px"
+                ml="8px"
+                id="stat"
+                onClick={() => changeSection(key)}
                 style={{
-                  zIndex:
-                    key === 0
-                      ? 6
-                      : key === 1
-                      ? 5
-                      : key === 2
-                      ? 4
-                      : key === 3
-                      ? 3
-                      : key === 4
-                      ? 2
-                      : key === 5
-                      ? 1
-                      : 0,
+                  scale: key === active ? 1.5 : 1,
+                  backgroundColor: key === active ? "transparent" : "",
+                  border: key === active ? "1px solid" : 0,
+                }}
+                _hover={{
+                  bgColor: "cyan",
+                }}
+                key={key}
+            ></Box>
+        ))}
+      </Box>
+      <Box>
+        {sectionStat.map((item: any, key: any) => (
+            <Box
+                className="sliderSections"
+                key={key}>
+              <Box
+                  className="section"
+                  pos="absolute"
+                  w="100%"
+                  h="1000px"
+                  style={{
+                    zIndex:
+                        key === 0
+                            ? 6
+                            : key === 1
+                                ? 5
+                                : key === 2
+                                    ? 4
+                                    : key === 3
+                                        ? 3
+                                        : key === 4
+                                            ? 2
+                                            : key === 5
+                                                ? 1
+                                                : 0,
 
-                  pointerEvents: key === active ? "auto" : "none",
-                  transform:
-                    key === active
-                      ? "translateY(0vh)"
-                      : key > active
-                      ? "translateY(0vh)"
-                      : "translateY(-100vh)",
-                }}
-                onWheel={(event: any) => {
-                  if (event.nativeEvent.wheelDelta > 0) {
-                    scrollUp(key);
-                  } else {
-                    scrollDown(key);
-                  }
-                }}
-                transition="all 1s"
+                    pointerEvents: key === active ? "auto" : "none",
+                    transform:
+                        key === active
+                            ? "translateY(0vh)"
+                            : key > active
+                                ? "translateY(0vh)"
+                                : "translateY(-100vh)",
+                  }}
+                  onWheel={(event: any) => {
+                    if (event.nativeEvent.wheelDelta > 0) {
+                      scrollUp(key);
+                    } else {
+                      scrollDown(key);
+                    }
+                  }}
+                  transition="all 1s"
               >
                 {divs[key].div}
               </Box>
             </Box>
-          ))}
-        </Box>
+        ))}
+      </Box>
       </body>
-    </>
   );
 }

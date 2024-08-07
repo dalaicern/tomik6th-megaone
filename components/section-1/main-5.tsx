@@ -136,6 +136,7 @@ export default function Main5(key: any) {
                         : "",
                     transition: "all 1s",
                   }}
+                  key = {key}
                 >
                   {key}
                 </Box>
@@ -162,6 +163,7 @@ export default function Main5(key: any) {
                         : "",
                     transition: key === active ? "all 1s" : "all .7s",
                   }}
+                  key = {key}
                 >
                   <Center fontSize={"1rem"}>{smallTitle[key].text}</Center>
                   <Center fontSize={"4rem"}>{bigTitle[key].text2}</Center>
@@ -210,6 +212,7 @@ export default function Main5(key: any) {
               zIndex: key === active ? 2 : 1,
               width: key === 0 ? 0 : "3.5rem",
             }}
+            key = {key}
           >
             <Box
               w="3rem"
@@ -230,7 +233,7 @@ export default function Main5(key: any) {
 
       <Box w="100%" h="100vh" overflow={"hidden"}>
         {s3.map((item, key) => (
-          <Tilt className="vanilla" options={options}>
+          <Tilt className="vanilla" options={options} key = {key}>
             <Box
               w="100%"
               bgImage={logos[key].src}
